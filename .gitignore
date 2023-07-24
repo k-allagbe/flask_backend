@@ -4,7 +4,7 @@ env/
 .env/
 __pycache__/
 *.pyc
-.env
+.env*
 config.py
 .vscode/
 .DS_Store
