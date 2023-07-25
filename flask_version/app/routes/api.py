@@ -13,8 +13,6 @@ def root():
 def get_top_n():
     """Return the top N documents with the highest scores."""
     n = request.args.get("n", default=1, type=int)
-    print("here")
-    print(n)
     if n < 1 or n > 100:
         return jsonify(error="Parameter n should be between 1 and 100"), 400
 
