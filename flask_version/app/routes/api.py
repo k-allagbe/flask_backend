@@ -11,7 +11,24 @@ def root():
 
 @api.route("/top", methods=["GET"])
 def get_top_n():
-    """Return the top N documents with the highest scores."""
+    """
+    Get Top N Documents
+    ---
+    tags:
+      - Documents
+    parameters:
+      - name: n
+        in: query
+        type: integer
+        description: Number of top documents to return
+    responses:
+      200:
+        description: Returns a list of top N documents.
+      400:
+        description: Invalid 'n' parameter
+      500:
+        description: Server error
+    """
     n = request.args.get("n", default=1, type=int)
     if n < 1 or n > 100:
         return jsonify(error="Parameter n should be between 1 and 100"), 400

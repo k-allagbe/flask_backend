@@ -4,7 +4,7 @@ from flask import Flask
 
 from .repositories.database import db
 from .routes.api import api as api_blueprint
-
+from flasgger import Swagger
 
 def create_app():
     app = Flask(__name__)
@@ -19,5 +19,7 @@ def create_app():
 
     # Register the API blueprint
     app.register_blueprint(api_blueprint, url_prefix="/api")
+
+    Swagger(app)
 
     return app
